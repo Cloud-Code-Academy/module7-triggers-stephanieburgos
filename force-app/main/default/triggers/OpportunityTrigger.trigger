@@ -39,7 +39,7 @@ trigger OpportunityTrigger on Opportunity (before update, before delete) {
     if(Trigger.isBefore && Trigger.isDelete) {
         // Create Set of related Account Ids from the deleted opportunities 
         Set<Id> accountIds = new Set<Id>();
-        
+
         for (Opportunity opp : Trigger.old) {
             accountIds.add(opp.AccountId);
         }
@@ -57,4 +57,3 @@ trigger OpportunityTrigger on Opportunity (before update, before delete) {
         }
     }
 }
-    
